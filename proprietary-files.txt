@@ -1,3 +1,5 @@
+# All unpinned blobs below are extracted from OnePlus7ProOxygen_21.P.28_OTA_028_all_2007240027_b336a0d372f0008
+
 # ADSP
 vendor/bin/adsprpcd
 vendor/etc/init/vendor.qti.adsprpc-service.rc
@@ -261,7 +263,14 @@ vendor/lib/libswregistrationalgo.so
 vendor/lib/libswvdec.so
 vendor/lib/libvideoutils.so
 vendor/lib/libvidhance.so
+vendor/lib/libvl53l1_daemon.so
+vendor/lib/sensors.hal.tof.so
 vendor/lib/vendor.oneplus.camera.CameraHIDL@1.0.so
+vendor/lib/vendor.oneplus.camera.CameraMDMHIDL@1.0.so
+vendor/lib64/camera/fdconfigpreview.bin
+vendor/lib64/camera/fdconfigpreviewlite.bin
+vendor/lib64/camera/fdconfigvideo.bin
+vendor/lib64/camera/fdconfigvideolite.bin
 vendor/lib64/camera/com.qti.sensor.gc5035.so
 vendor/lib64/camera/com.qti.sensor.imx371.so
 vendor/lib64/camera/com.qti.sensor.imx471.so
@@ -371,7 +380,10 @@ vendor/lib64/libSuperSensorProcessorCWrapper.so
 vendor/lib64/libswregistrationalgo.so
 vendor/lib64/libswvdec.so
 vendor/lib64/libvidhance.so
+vendor/lib64/libvl53l1_daemon.so
+vendor/lib64/sensors.hal.tof.so
 vendor/lib64/vendor.oneplus.camera.CameraHIDL@1.0.so
+vendor/lib64/vendor.oneplus.camera.CameraMDMHIDL@1.0.so
 
 # Camera firmware
 vendor/firmware/CAMERA_ICP.elf
