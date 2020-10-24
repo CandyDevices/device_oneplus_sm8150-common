@@ -249,12 +249,18 @@
 
     <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
     <bool name="config_dozePulsePickup">true</bool>
+    <string name="config_custom_pickup">oneplus.sensor.pickup</string>
+    <!--oneplus.sensor.pickup, oneplus.sensor.op_motion_detect-->
 
     <!-- Doze: should the TYPE_TILT_GESTURE sensor be used as a pulse signal. -->
     <bool name="config_dozePulseTilt">true</bool>
+    <string name="config_custom_tilt">oneplus.sensor.tilt</string>
 
     <!-- Doze: should the TYPE_PROXIMITY sensor be used as a pulse signal. -->
     <bool name="config_dozePulseProximity">true</bool>
+    <string name="config_custom_proximity">oneplus.sensor.proximity</string>
+    <!--oneplus.sensor.pocket, oneplus.sensor.0.proximity
+        oneplus.sensor.prox_motion, oneplus.sensor.proximity -->
 
     <!-- Device proximity can wake the device -->
     <bool name="config_deviceHaveWakeUpProximity">true</bool>
@@ -263,7 +269,6 @@
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
          states. -->
     <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
-
     <!-- Control whether the always on display mode is enabled by default. This value will be used
          during initialization when the setting is still null. -->
     <bool name="config_dozeAlwaysOnEnabled">false</bool>
