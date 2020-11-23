@@ -59,10 +59,8 @@ public class ProximitySensor implements SensorEventListener {
         mSensorManager = (SensorManager) mContext.getSystemService(
                 Context.SENSOR_SERVICE);
         if (mSensorManager != null) {
-            mSensorProximity = Utils.getSensor(
-                    mSensorManager, "oneplus.sensor.ultrasound.proximity");
-            //mSensorProximity = mSensorManager.getDefaultSensor(
-            //            Sensor.TYPE_PROXIMITY, wakeup);
+            mSensorProximity = mSensorManager.getDefaultSensor(
+                        Sensor.TYPE_PROXIMITY, wakeup);
         }
         mExecutorService = Executors.newSingleThreadExecutor();
     }
