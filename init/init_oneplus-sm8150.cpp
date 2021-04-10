@@ -84,24 +84,6 @@ void load_dalvikvm_properties() {
   property_override("dalvik.vm.heapminfree", "8m");
 }
 
-void load_op7pro(const char *model) {
-  property_override("ro.product.model", model);
-  property_override("ro.product.name", "OnePlus7Pro");
-  property_override("ro.build.product", "OnePlus7Pro");
-  property_override("ro.product.device", "OnePlus7Pro");
-  property_override("ro.vendor.product.device", "OnePlus7Pro");
-  property_override("ro.display.series", "OnePlus 7 Pro");
-}
-
-void load_op7t(const char *model) {
-  property_override("ro.product.model", model);
-  property_override("ro.product.name", "OnePlus7T");
-  property_override("ro.build.product", "OnePlus7T");
-  property_override("ro.product.device", "OnePlus7T");
-  property_override("ro.vendor.product.device", "OnePlus7T");
-  property_override("ro.display.series", "OnePlus 7T");
-}
-
 void vendor_load_properties() {
   int project_name = stoi(android::base::GetProperty("ro.boot.project_name", ""));
   int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
@@ -109,47 +91,55 @@ void vendor_load_properties() {
     case 18821:
       switch (rf_version){
         case 1:
-          /* China*/
-          load_op7pro("GM1910");
+          /* China */
+          property_override("ro.product.model", "GM1910");
+          break;
+        case 2:
+          /* T-Mobile */
+          property_override("ro.product.model", "GM1917");
           break;
         case 3:
-          /* India*/
-          load_op7pro("GM1911");
+          /* India */
+          property_override("ro.product.model", "GM1911");
           break;
         case 4:
           /* Europe */
-          load_op7pro("GM1913");
+          property_override("ro.product.model", "GM1913");
           break;
         case 5:
           /* Global / US Unlocked */
-          load_op7pro("GM1917");
+          property_override("ro.product.model", "GM1917");
           break;
         default:
           /* Generic*/
-          load_op7pro("GM1917");
+          property_override("ro.product.model", "GM1917");
           break;
       }
     case 18865:
       switch (rf_version){
         case 1:
-          /* China*/
-          load_op7t("HD1900");
+          /* China */
+          property_override("ro.product.model", "HD1900");
+          break;
+        case 2:
+          /* T-Mobile */
+          property_override("ro.product.model", "HD1907");
           break;
         case 3:
-          /* India*/
-          load_op7t("HD1901");
+          /* India */
+          property_override("ro.product.model", "HD1901");
           break;
         case 4:
           /* Europe */
-          load_op7t("HD1903");
+          property_override("ro.product.model", "HD1903");
           break;
         case 5:
           /* Global / US Unlocked */
-          load_op7t("HD1907");
+          property_override("ro.product.model", "HD1905");
           break;
         default:
           /* Generic */
-          load_op7t("HD1907");
+          property_override("ro.product.model", "HD1905");
           break;
       }
   }
