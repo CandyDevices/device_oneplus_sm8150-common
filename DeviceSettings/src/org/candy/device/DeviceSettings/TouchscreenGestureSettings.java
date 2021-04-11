@@ -37,8 +37,8 @@ import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreference;
 
-import com.android.internal.yaap.hardware.LineageHardwareManager; // Need FWB support
-import com.android.internal.yaap.hardware.TouchscreenGesture; // Need FWB support
+import com.android.internal.candy.hardware.LineageHardwareManager; // Need FWB support
+import com.android.internal.candy.hardware.TouchscreenGesture; // Need FWB support
 
 import org.candy.device.DeviceSettings.R;
 

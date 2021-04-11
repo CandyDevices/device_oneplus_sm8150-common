@@ -45,7 +45,7 @@ import androidx.preference.PreferenceGroup;
 import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
 
-import com.android.internal.util.yaap.FileUtils;
+import com.android.internal.util.candy.FileUtils;
 import org.candy.device.DeviceSettings.Constants;
 
 public class DeviceSettings extends PreferenceFragment
