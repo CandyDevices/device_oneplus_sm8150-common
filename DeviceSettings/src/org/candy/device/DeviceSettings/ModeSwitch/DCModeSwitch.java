@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.yaap.device.DeviceSettings;
+package org.candy.device.DeviceSettings;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -23,7 +23,7 @@ import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceManager;
 
-import com.yaap.device.DeviceSettings.DeviceSettings;
+import org.candy.device.DeviceSettings.DeviceSettings;
 
 public class DCModeSwitch implements OnPreferenceChangeListener {
 

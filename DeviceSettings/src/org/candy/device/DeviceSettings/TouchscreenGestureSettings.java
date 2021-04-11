@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.yaap.device.DeviceSettings;
+package org.candy.device.DeviceSettings;
 
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -40,7 +40,7 @@ import androidx.preference.SwitchPreference;
 import com.android.internal.yaap.hardware.LineageHardwareManager; // Need FWB support
 import com.android.internal.yaap.hardware.TouchscreenGesture; // Need FWB support
 
-import com.yaap.device.DeviceSettings.R;
+import org.candy.device.DeviceSettings.R;
 
 import java.lang.System;
 

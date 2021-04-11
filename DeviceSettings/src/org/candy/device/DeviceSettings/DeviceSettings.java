@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.yaap.device.DeviceSettings;
+package org.candy.device.DeviceSettings;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -46,7 +46,7 @@ import androidx.preference.PreferenceScreen;
 import androidx.preference.TwoStatePreference;
 
 import com.android.internal.util.yaap.FileUtils;
-import com.yaap.device.DeviceSettings.Constants;
+import org.candy.device.DeviceSettings.Constants;
 
 public class DeviceSettings extends PreferenceFragment
         implements Preference.OnPreferenceChangeListener {
@@ -158,7 +158,7 @@ public class DeviceSettings extends PreferenceFragment
         if (preference == mFpsInfo) {
             boolean enabled = (Boolean) newValue;
             Intent fpsinfo = new Intent(this.getContext(),
-                    com.yaap.device.DeviceSettings.FPSInfoService.class);
+                    org.candy.device.DeviceSettings.FPSInfoService.class);
             if (enabled) {
                 this.getContext().startService(fpsinfo);
             } else {
@@ -185,7 +185,7 @@ public class DeviceSettings extends PreferenceFragment
             Boolean enabled = (Boolean) newValue;
             Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "5" : "0");
             Intent hbmIntent = new Intent(this.getContext(),
-                    com.yaap.device.DeviceSettings.HBMModeService.class);
+                    org.candy.device.DeviceSettings.HBMModeService.class);
             if (enabled) {
                 this.getContext().startService(hbmIntent);
             } else {

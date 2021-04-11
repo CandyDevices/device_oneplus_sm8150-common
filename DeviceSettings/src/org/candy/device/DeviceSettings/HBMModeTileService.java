@@ -15,7 +15,7 @@
 * along with this program. If not, see <http://www.gnu.org/licenses/>.
 *
 */
-package com.yaap.device.DeviceSettings;
+package org.candy.device.DeviceSettings;
 
 import android.annotation.TargetApi;
 import android.content.BroadcastReceiver;
@@ -67,7 +67,7 @@ public class HBMModeTileService extends TileService {
         Utils.writeValue(HBMModeSwitch.getFile(), enabled ? "0" : "5");
         if (!enabled) {
             mHbmIntent = new Intent(this,
-                    com.yaap.device.DeviceSettings.HBMModeService.class);
+                    org.candy.device.DeviceSettings.HBMModeService.class);
             this.startService(mHbmIntent);
         }
         updateState();
