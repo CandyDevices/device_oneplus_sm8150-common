@@ -20,7 +20,7 @@ PRODUCT_COPY_FILES += \
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-system \
-    $(LOCAL_PATH)/overlay-yaap
+    $(LOCAL_PATH)/overlay-candy
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -85,7 +85,7 @@ PRODUCT_PACKAGES += \
     AntHalService-Soong \
     com.dsi.ant@1.0.vendor
 
-# YAAP Device Settings
+# Candy Device Settings
 PRODUCT_PACKAGES += \
     DeviceSettings
 
