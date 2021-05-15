@@ -70,10 +70,6 @@
 
     <!-- Need this for applocker and face unlock -->
     <bool name="config_supportsInDisplayFingerprint">true</bool>
-
-    <!-- FOD icon dim-->
-    <bool name="config_targetUsesInKernelDimming">true</bool>
-
     <!-- Does the device have a notification led -->
     <bool name="config_hasNotificationLed">false</bool>
 
