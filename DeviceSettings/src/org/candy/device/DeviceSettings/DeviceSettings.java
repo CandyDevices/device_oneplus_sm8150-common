@@ -17,7 +17,13 @@
 */
 package org.candy.device.DeviceSettings;
 
+import android.app.ActivityManager;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -103,10 +109,6 @@ public class DeviceSettings extends PreferenceFragment
             mRefreshRate.setChecked(RefreshRateSwitch.isCurrentlyEnabled(this.getContext()));
             mRefreshRate.setOnPreferenceChangeListener(this);
             updateRefreshRateState(autoRefresh);
-
-            mFpsInfo = (SwitchPreference) findPreference(KEY_FPS_INFO);
-            mFpsInfo.setChecked(prefs.getBoolean(KEY_FPS_INFO, false));
-            mFpsInfo.setOnPreferenceChangeListener(this);
         } else {
             getPreferenceScreen().removePreference((Preference) findPreference(KEY_CATEGORY_REFRESH));
         }
@@ -115,7 +117,7 @@ public class DeviceSettings extends PreferenceFragment
         mFpsInfo.setChecked(isFPSOverlayRunning());
         mFpsInfo.setOnPreferenceChangeListener(this);
 
-        PreferenceCategory mCameraCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_CAMERA);
+        mCameraCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_CAMERA);
         if (sHasPopupCamera) {
             mAlwaysCameraSwitch = (SwitchPreference) findPreference(KEY_ALWAYS_CAMERA_DIALOG);
             boolean enabled = Settings.System.getInt(getContext().getContentResolver(),
@@ -130,15 +132,16 @@ public class DeviceSettings extends PreferenceFragment
     @Override
     public void onResume() {
         super.onResume();
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled(this.getContext()));
+        mFpsInfo.setChecked(isFPSOverlayRunning());
     }
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (preference == mFpsInfo) {
             boolean enabled = (Boolean) newValue;
-            Intent fpsinfo = new Intent(this.getContext(),
-                    org.candy.device.DeviceSettings.FPSInfoService.class);
+            Intent fpsinfo = new Intent(this.getContext(), FPSInfoService.class);
             if (enabled) {
                 this.getContext().startService(fpsinfo);
             } else {
@@ -193,4 +196,14 @@ public class DeviceSettings extends PreferenceFragment
         mRefreshRate.setEnabled(!auto);
         if (auto) mRefreshRate.setChecked(false);
     }
+
+    private boolean isFPSOverlayRunning() {
+        ActivityManager am = (ActivityManager) getContext().getSystemService(
+                Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service :
+                am.getRunningServices(Integer.MAX_VALUE))
+            if (FPSInfoService.class.getName().equals(service.service.getClassName()))
+                return true;
+        return false;
+   }
 }
