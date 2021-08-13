@@ -44,9 +44,17 @@ BOARD_RAMDISK_OFFSET := 0x02000000
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/oneplus/sm8150
 TARGET_KERNEL_CLANG_COMPILE := true
-BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-TARGET_KERNEL_CLANG_VERSION := latest
-TARGET_KERNEL_CONFIG := vendor/sm8150-perf_defconfig
+
+## CandyDevices
+#BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
+#TARGET_KERNEL_CLANG_VERSION := latest
+#TARGET_KERNEL_CONFIG := vendor/sm8150-perf_defconfig
+
+## Gulch
+BOARD_KERNEL_IMAGE_NAME := Image
+TARGET_KERNEL_ADDITIONAL_FLAGS := LLVM=1 AS=llvm-as AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip
+TARGET_KERNEL_CLANG_VERSION := proton
+TARGET_KERNEL_CONFIG := gulch_defconfig
 
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
