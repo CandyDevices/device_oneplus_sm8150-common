@@ -117,7 +117,7 @@ public class DeviceSettings extends PreferenceFragment
         mFpsInfo.setChecked(isFPSOverlayRunning());
         mFpsInfo.setOnPreferenceChangeListener(this);
 
-        mCameraCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_CAMERA);
+        PreferenceCategory mCameraCategory = (PreferenceCategory) findPreference(KEY_CATEGORY_CAMERA);
         if (sHasPopupCamera) {
             mAlwaysCameraSwitch = (SwitchPreference) findPreference(KEY_ALWAYS_CAMERA_DIALOG);
             boolean enabled = Settings.System.getInt(getContext().getContentResolver(),
@@ -132,7 +132,6 @@ public class DeviceSettings extends PreferenceFragment
     @Override
     public void onResume() {
         super.onResume();
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this.getContext());
         mHBMModeSwitch.setChecked(HBMModeSwitch.isCurrentlyEnabled(this.getContext()));
         mFpsInfo.setChecked(isFPSOverlayRunning());
     }
